@@ -18,8 +18,8 @@ function isElementInViewport(el) {
     );
 
 */
-$(window).on("scroll", function() {
-  $(".scroll-section").each(function() {
+$(window).on("scroll", function () {
+  $(".scroll-section").each(function () {
     if (isElementInViewport(this)) {
       $(this).addClass("visible");
       if ($(this).hasClass("scroll-1")) {
