@@ -13,13 +13,26 @@ body {
 
 /* Styles pour l'arrière-plan dégradé bleu-violet */
 body {
-background-image: url('https://github.com/berru-g/scroll-effect/blob/main/src/img/pattern_hexagon-2_1_2_0-0_0_1__ffffff00_ffffff.png?raw=true'),linear-gradient(to top, #7fffd4, #8A2BE2, #1a1a1a);
-background-repeat: no-repeat;
+background-image: linear-gradient(to top, #7fffd4, #8A2BE2, #1a1a1a);
+background-repeat: repeat;
 background-position: center;
 /* Mode de fusion pour superposer l'image */
-background-blend-mode: multiply;
+background-blend-mode: overlay;
 }
 
+body::after {
+/* Opacité de l'image superposée */
+content: "";
+display: block;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('https://github.com/berru-g/scroll-effect/blob/main/src/img/back.png?raw=true') center/cover;
+opacity: 0.3; /* Modifier l'opacité ici */
+pointer-events: none;
+}
 /* Styles pour l'en-tête */
 header {
   display: flex;
@@ -27,7 +40,7 @@ header {
   align-items: center;
   padding: 20px;
   background: transparent;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(1px);
 }
 
 .logo img {
@@ -322,7 +335,7 @@ box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
   margin-bottom: 20px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
   animation: box-fade 1s ease-in-out;
   transition: transform 0.3s ease-in-out;
 }
@@ -405,10 +418,15 @@ text-decoration: none;
 a:hover{
 color: #b478ec;
 }
+.ban {
+width: 100%;
+height:
+auto;
+}
 footer {
   background-color: #1a1a1a;
   color: #fff;
-  padding: 20px 5px;
+  padding: 10px 5px;
 }
 
 .footer-content {
@@ -451,6 +469,7 @@ footer {
 
 .footer-section.contact p i {
   margin-right: 10px;
+
 }
 
 .footer-bottom {

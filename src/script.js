@@ -1,8 +1,4 @@
-/*import $ from "https://cdn.skypack.dev/jquery@3.6.4";*/
- function toggleMenu() {
-    var menu = document.getElementById("menu");
-    menu.classList.toggle("show");
-    }
+
 /*
 $(window).on("scroll", function() {
     $(".scroll-section").each(function() {
@@ -62,19 +58,20 @@ function isElementInViewport(el) {
 }
 
 
-/*
-setTimeout(function() {
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+hamburgerMenu.addEventListener('click', () => {
+  // Utilisation de SweetAlert pour afficher la fenêtre contextuelle
   Swal.fire({
-    title: 'Decouvrir nos offres',
-    html: 'gratuitement',
-    icon: 'success',
-    confirmButtonText: 'Decouvrir',
-    onBeforeOpen: () => {
-      const confirmButton = Swal.getConfirmButton();
-      confirmButton.addEventListener('click', () => {
-        window.location.href = 'https://example.com'; // Remplacez cette URL par votre propre lien
-      });
+    title: 'Menu',
+    html: '<ul><li><a href="#">Accueil</a></li><li><a href="#">Services</a></li><li><a href="https://codepen.io/h-lautre">Produits</a></li><li><a href="https://github.com/berru-g/">Contact</a></li></ul>',
+    showCloseButton: true,
+    showConfirmButton: false,
+    customClass: {
+      popup: 'custom-swal-popup',
+      closeButton: 'custom-swal-close-button',
+      content: 'custom-swal-content',
     }
   });
-}, 10000);
-*/
+});
+
