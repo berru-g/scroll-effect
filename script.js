@@ -82,3 +82,52 @@ function callbackFunc() {
  
 window.addEventListener("load", callbackFunc);
 window.addEventListener("scroll", callbackFunc);
+
+    $(document).ready(function() {
+      // Fonction pour récupérer le prix du Bitcoin en temps réel
+      function getBitcoinPrice() {
+        $.ajax({
+          url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur',
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            // Extraction du prix du Bitcoin en euros à partir de la réponse JSON
+            var bitcoinPriceEUR = data.bitcoin.eur;
+
+            // Affichage du prix du Bitcoin en euros dans la balise avec l'ID "bitcoin-price"
+            $('#bitcoin-price').text(bitcoinPriceEUR.toLocaleString() + ' EUR');
+          },
+          error: function() {
+            console.log('Une erreur s\'est produite lors de la récupération du prix du Bitcoin.');
+          }
+        });
+      }
+
+      // Fonction pour calculer et afficher le coût des pizzas
+      function calculatePizzaCost(bitcoinPriceEUR) {
+        var pizzaCostEUR = bitcoinPriceEUR * 10000;
+        $('#pizza-cost').text(pizzaCostEUR.toLocaleString() + ' EUR');
+      }
+
+      // Appel initial pour obtenir le prix du Bitcoin en temps réel
+      getBitcoinPrice();
+
+      // Rafraîchissement du prix du Bitcoin et calcul du coût des pizzas toutes les 10 secondes
+      setInterval(function() {
+        getBitcoinPrice();
+      }, 10000); // 10 secondes
+
+      // Appel à l'API pour récupérer le prix du Bitcoin en euros
+      $.ajax({
+        url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+          var bitcoinPriceEUR = data.bitcoin.eur;
+          calculatePizzaCost(bitcoinPriceEUR);
+        },
+        error: function() {
+          console.log('Une erreur s\'est produite lors de la récupération du prix du Bitcoin.');
+        }
+      });
+    });
