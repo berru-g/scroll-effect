@@ -45,7 +45,7 @@ hamburgerMenu.addEventListener('click', () => {
   // Utilisation de SweetAlert pour afficher la fenêtre contextuelle
   Swal.fire({
     title: 'Menu',
-    html: '<ul><li><a href="#">Accueil</a></li><li><a href="#">Services</a></li><li><a href="https://codepen.io/h-lautre">Produits</a></li><li><a href="https://github.com/berru-g/">Contact</a></li></ul>',
+    html: '<ul><li><a href="#">Accueil</a></li><li><a href="https://shop.ledger.com/?r=97b532808e9b">Ledger</a></li><li><a href="https://accounts.binance.com/register?ref=506274097">Binance</a></li><li><a href="https://github.com/berru-g/">Contact</a></li></ul>',
     showCloseButton: true,
     showConfirmButton: false,
     customClass: {

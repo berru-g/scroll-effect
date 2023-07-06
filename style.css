@@ -337,7 +337,16 @@ box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
   flex-wrap: wrap;
   padding: 50px;
 }
-
+.ledger {
+  width: 80%;
+  padding: 20px 20px;
+  margin-left: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  animation: box-fade 1s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
 .box {
   width: 45%;
   padding: 20px;
